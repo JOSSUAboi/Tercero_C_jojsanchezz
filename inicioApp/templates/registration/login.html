@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%  load static %}
+</head>
+<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 offset-md-3">
+                    <div class ="card">
+                        <div class="card-body">
+                            <h2>INGRESA TUS CREDENCIALES</h2>
+                            <hr>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{  form }}
+
+                                <input type="submit" value="ingresar">
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+<form action="{% url 'inicio' %}" method="post">
+    {% csrf_token %}
+
+    <button>
+        login
+    </button>
+
+
+</form>
+</body>
+</html>

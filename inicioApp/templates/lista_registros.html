@@ -1,0 +1,45 @@
+{% extends 'ufff.html' %}
+
+
+{% block content %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'video/estrellas.mp4' %}">
+
+    <h1>Usuarios registrados</h1>
+
+    <div class="row col-12 justify-content-end mb-2 pr-0">
+
+          <a class="btn btn-info col-md-2" href="{% url 'registrouser' %}">Nuevo ingreso</a>
+
+    </div>
+     {% if mensaje %}
+                 <div class="alert alert-success" role="alert">
+                       Usuario eliminado con exito!
+                 </div>
+            {% endif %}
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Telefono</th>
+        <th scope="col">Fecha nacimiento</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for usuario in usuario %}
+    <tr>
+      <th scope="row">{{ usuario.nombre }}</th>
+      <td>{{ usuario.apellido }}</td>
+      <td>{{ usuario.telefono }}</td>
+      <td>{{ usuario.fecha_nacimiento }}</td>
+    <td><a class="btn btn-warning" href="{% url 'editarusuario' usuario.id %}">Editar</a></td>
+    <td><a class="btn btn-danger" href="{% url 'eliminarusuario' usuario.id %}">Eliminar</a></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'ufff.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+     {% if form.errors %}
+              <div class="alert alert-danger" role="alert">
+                  A simple danger alert—check it out!
+              </div>
+     {% endif %}
+
+    <h1>Actualizar un usuario</h1>
+
+
+    <form action="{% url 'actualizarusuario'  usuario.id %}" method="post">
+            {% csrf_token %}
+            {% if mensaje %}
+                 <div class="alert alert-success" role="alert">
+                       usuario ACTUALIZADO EXITOSAMENTE!
+                 </div>
+            {% endif %}
+
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-success">GUARDAR</button>
+            <a class="btn btn-warning" href="{% url 'listarusuario' %}">Cancelar</a>
+    </form>
+
+{% endblock %}

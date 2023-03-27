@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mantenimineto</title>
+    {%  load static %}
+    <link rel="stylesheet" href="{% static 'video/estrellas.mp4' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRhttps://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+<video width="320" height="240" autoplay muted loop >
+        <source src ="{% static 'video/estrellas.mp4' %}" type="audio/mp4">
+    </video>
+<div class="btn-center">
+  <a href="{% url 'registrouser' %}" class="btn btn-primary active bg-warning" aria-current="page">Registrar</a>
+  <a href="{% url 'lista_registros' %}" class="btn btn-primary bg-warning">Consultar</a>
+  <a href="{% url 'actualizarusuario' %}" class="btn btn-primary bg-warning">Actualizar</a>
+    <a href="{% url 'eliminarusuario' %}" class="btn btn-primary bg-warning">Eliminar</a>
+</div>
+
+</body>
+</html>
